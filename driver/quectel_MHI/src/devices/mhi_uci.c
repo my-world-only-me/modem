@@ -197,6 +197,7 @@ static int mhi_queue_inbound(struct uci_dev *uci_dev)
 
 	return ret;
 }
+
 static long mhi_uci_ioctl(struct file *file,
 			  unsigned int cmd,
 			  unsigned long arg)

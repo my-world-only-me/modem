@@ -85,7 +85,7 @@ function copyFunction() {
 
 
 function postcmd(cmd) {
-    (new XHR()).post("<%=luci.dispatcher.build_url("admin", "modem", "sms", "run_at")%>", {"code":cmd}, function(x) {
+    (new XHR()).post("<%=luci.dispatcher.build_url("admin", "network", "sms", "run_at")%>", {"code":cmd}, function(x) {
         console.log(x.response)
         console.log(x)
 

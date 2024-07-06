@@ -10,23 +10,23 @@
 module("luci.controller.modem.sms", package.seeall)
 
 function index()
-	entry({"admin", "network"}, firstchild(), "Modem", 30).dependent=false
-	entry({"admin", "network", "sms"}, alias("admin", "network", "sms", "readsms"), translate("短信管理"), 20)
-	entry({"admin", "network", "sms", "readsms"},template("network/readsms"),translate("接收信息"), 10)
- 	entry({"admin", "network", "sms", "sendsms"},template("network/sendsms"),translate("发送信息"), 20)
- 	entry({"admin", "network", "sms", "ussd"},template("network/ussd"),translate("USSD 代码"), 30)
-	entry({"admin", "network", "sms", "atcommands"},template("network/atcommands"),translate("AT 命令"), 40)
-	entry({"admin", "network", "sms", "smsconfig"},cbi("network/smsconfig"),translate("配置"), 50)
-	entry({"admin", "network", "sms", "delete_one"}, call("delete_sms", smsindex), nil).leaf = true
-	entry({"admin", "network", "sms", "delete_all"}, call("delete_all_sms"), nil).leaf = true
-	entry({"admin", "network", "sms", "run_ussd"}, call("ussd"), nil).leaf = true
-	entry({"admin", "network", "sms", "run_at"}, call("at"), nil).leaf = true
-	entry({"admin", "network", "sms", "run_sms"}, call("sms"), nil).leaf = true
-	entry({"admin", "network", "sms", "readsim"}, call("slots"), nil).leaf = true
-	entry({"admin", "network", "sms", "countsms"}, call("count_sms"), nil).leaf = true
-	entry({"admin", "network", "sms", "user_ussd"}, call("userussd"), nil).leaf = true
-	entry({"admin", "network", "sms", "user_atc"}, call("useratc"), nil).leaf = true
-	entry({"admin", "network", "sms", "user_phonebook"}, call("userphb"), nil).leaf = true
+	entry({"admin", "modem"}, firstchild(), "Modem", 30).dependent=false
+	entry({"admin", "modem", "sms"}, alias("admin", "modem", "sms", "readsms"), translate("短信"), 20)
+	entry({"admin", "modem", "sms", "readsms"},template("modem/readsms"),translate("收到的信息"), 10)
+ 	entry({"admin", "modem", "sms", "sendsms"},template("modem/sendsms"),translate("发送消息"), 20)
+ 	entry({"admin", "modem", "sms", "ussd"},template("modem/ussd"),translate("USSD 代码"), 30)
+	entry({"admin", "modem", "sms", "atcommands"},template("modem/atcommands"),translate("AT 命令"), 40)
+	entry({"admin", "modem", "sms", "smsconfig"},cbi("modem/smsconfig"),translate("配置"), 50)
+	entry({"admin", "modem", "sms", "delete_one"}, call("delete_sms", smsindex), nil).leaf = true
+	entry({"admin", "modem", "sms", "delete_all"}, call("delete_all_sms"), nil).leaf = true
+	entry({"admin", "modem", "sms", "run_ussd"}, call("ussd"), nil).leaf = true
+	entry({"admin", "modem", "sms", "run_at"}, call("at"), nil).leaf = true
+	entry({"admin", "modem", "sms", "run_sms"}, call("sms"), nil).leaf = true
+	entry({"admin", "modem", "sms", "readsim"}, call("slots"), nil).leaf = true
+	entry({"admin", "modem", "sms", "countsms"}, call("count_sms"), nil).leaf = true
+	entry({"admin", "modem", "sms", "user_ussd"}, call("userussd"), nil).leaf = true
+	entry({"admin", "modem", "sms", "user_atc"}, call("useratc"), nil).leaf = true
+	entry({"admin", "modem", "sms", "user_phonebook"}, call("userphb"), nil).leaf = true
 end
 
 

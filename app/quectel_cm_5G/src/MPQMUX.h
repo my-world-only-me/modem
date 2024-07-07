@@ -1,23 +1,19 @@
-/******************************************************************************
-  @file    QCQMUX.h
+/*===========================================================================
 
-  DESCRIPTION
-  This module contains QMI QMUX module.
+                            M P Q M U X. H
+DESCRIPTION:
 
-  INITIALIZATION AND SEQUENCING REQUIREMENTS
-  None.
+    This file provides support for QMUX.
 
-  ---------------------------------------------------------------------------
-  Copyright (c) 2016 - 2023 Quectel Wireless Solution, Co., Ltd.  All Rights Reserved.
-  Quectel Wireless Solution Proprietary and Confidential.
-  ---------------------------------------------------------------------------
-******************************************************************************/
+INITIALIZATION AND SEQUENCING REQUIREMENTS:
 
+Copyright (C) 2011 by Qualcomm Technologies, Incorporated.  All Rights Reserved.
+===========================================================================*/
 
-#ifndef QCQMUX_H
-#define QCQMUX_H
+#ifndef MPQMUX_H
+#define MPQMUX_H
 
-#include "QCQMI.h"
+#include "MPQMI.h"
 
 #pragma pack(push, 1)
 
@@ -35,14 +31,12 @@
 #define QMIWDS_GET_CURRENT_CHANNEL_RATE_RESP  0x0023
 #define QMIWDS_GET_PKT_STATISTICS_REQ         0x0024
 #define QMIWDS_GET_PKT_STATISTICS_RESP        0x0024
-#define QMIWDS_CREATE_PROFILE_REQ             0x0027
-#define QMIWDS_CREATE_PROFILE_RESP            0x0027
+#define QMIWDS_CREATE_PROFILE_REQ         0x0027
+#define QMIWDS_CREATE_PROFILE_RESP        0x0027
 #define QMIWDS_MODIFY_PROFILE_SETTINGS_REQ    0x0028
 #define QMIWDS_MODIFY_PROFILE_SETTINGS_RESP   0x0028
-#define QMIWDS_GET_PROFILE_LIST_REQ           0x002A
-#define QMIWDS_GET_PROFILE_LIST_RESP          0x002A
-#define QMIWDS_GET_PROFILE_SETTINGS_REQ       0x002B
-#define QMIWDS_GET_PROFILE_SETTINGS_RESP      0x002B
+#define QMIWDS_GET_PROFILE_SETTINGS_REQ         0x002B
+#define QMIWDS_GET_PROFILE_SETTINGS_RESP        0x002B
 #define QMIWDS_GET_DEFAULT_SETTINGS_REQ       0x002C
 #define QMIWDS_GET_DEFAULT_SETTINGS_RESP      0x002C
 #define QMIWDS_GET_RUNTIME_SETTINGS_REQ       0x002D
@@ -649,20 +643,6 @@ typedef struct _QMIWDS_GPRS_QOS
 */
 #endif
 
-typedef struct _QMIWDS_PDPCONTEXT
-{
-   UCHAR  TLVType;
-   USHORT TLVLength;
-   UCHAR  pdp_context;
-} __attribute__ ((packed)) QMIWDS_PDPCONTEXT, *PQMIWDS_PDPCONTEXT;
-
-typedef struct _QMIWDS_PROFILELIST
-{
-   UCHAR  TLVType;
-   USHORT TLVLength;
-   UCHAR  ProfileList[1024];
-} __attribute__ ((packed)) QMIWDS_PROFILELIST, *PQMIWDS_PROFILELIST;
-
 typedef struct _QMIWDS_PROFILENAME
 {
    UCHAR  TLVType;
@@ -838,21 +818,6 @@ typedef struct _QMIWDS_CREATE_PROFILE_SETTINGS_REQ_MSG
    USHORT TLV2Length;
    UCHAR  pdp_context;
 } __attribute__ ((packed)) QMIWDS_CREATE_PROFILE_SETTINGS_REQ_MSG, *PQMIWDS_CREATE_PROFILE_SETTINGS_REQ_MSG;
-
-typedef struct _QMIWDS_GET_PROFILE_LIST_REQ_MSG
-{
-   USHORT Type;
-   USHORT Length;
-} __attribute__ ((packed)) QMIWDS_GET_PROFILE_LIST_REQ_MSG, *PQMIWDS_GET_PROFILE_LIST_REQ_MSG;
-
-typedef struct _QMIWDS_GET_PROFILE_LIST_RESP_MSG
-{
-   USHORT Type;
-   USHORT Length;
-   UCHAR  TLVType;
-   USHORT TLVLength;
-   UCHAR  ProfileList[1024];
-} __attribute__ ((packed)) QMIWDS_GET_PROFILE_LIST_RESP_MSG, *PQMIWDS_GET_PROFILE_LIST_RESP_MSG;
 
 #if 0
 typedef struct _QMIWDS_EVENT_REPORT_IND_DATA_BEARER_TLV
@@ -4126,10 +4091,8 @@ typedef struct _QMUX_MSG
       QMIWDS_GET_DEFAULT_SETTINGS_RESP_MSG      GetDefaultSettingsResp;
       QMIWDS_MODIFY_PROFILE_SETTINGS_REQ_MSG    ModifyProfileSettingsReq;
       QMIWDS_MODIFY_PROFILE_SETTINGS_RESP_MSG   ModifyProfileSettingsResp;
-      QMIWDS_GET_PROFILE_SETTINGS_REQ_MSG       GetProfileSettingsReq;
+      QMIWDS_GET_PROFILE_SETTINGS_REQ_MSG		GetProfileSettingsReq;
       QMIWDS_CREATE_PROFILE_SETTINGS_REQ_MSG    CreatetProfileSettingsReq;
-      QMIWDS_GET_PROFILE_LIST_REQ_MSG           GetProfileListReq;
-      QMIWDS_GET_PROFILE_LIST_RESP_MSG          GetProfileListResp;
 #if 0
       QMIWDS_GET_DATA_BEARER_REQ_MSG            GetDataBearerReq;
       QMIWDS_GET_DATA_BEARER_RESP_MSG           GetDataBearerResp;
@@ -4306,5 +4269,5 @@ typedef struct _QCQMIMSG {
 
 #pragma pack(pop)
 
-#endif // QCQMUX_H
+#endif // MPQMUX_H
 

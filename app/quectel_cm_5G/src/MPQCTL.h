@@ -1,23 +1,19 @@
-/******************************************************************************
-  @file    QCQCTL.h
+/*===========================================================================
 
-  DESCRIPTION
-  This module contains QMI QCTL module.
+                            M P Q C T L. H
+DESCRIPTION:
 
-  INITIALIZATION AND SEQUENCING REQUIREMENTS
-  None.
+    This module contains QMI QCTL module.
 
-  ---------------------------------------------------------------------------
-  Copyright (c) 2016 - 2023 Quectel Wireless Solution, Co., Ltd.  All Rights Reserved.
-  Quectel Wireless Solution Proprietary and Confidential.
-  ---------------------------------------------------------------------------
-******************************************************************************/
+INITIALIZATION AND SEQUENCING REQUIREMENTS:
 
+Copyright (C) 2011 by Qualcomm Technologies, Incorporated.  All Rights Reserved.
+===========================================================================*/
 
-#ifndef QCQCTL_H
-#define QCQCTL_H
+#ifndef MPQCTL_H
+#define MPQCTL_H
 
-#include "QCQMI.h"
+#include "MPQMI.h"
 
 #pragma pack(push, 1)
 
@@ -391,4 +387,4 @@ typedef struct _QMICTL_MSG
 } __attribute__ ((packed)) QMICTL_MSG, *PQMICTL_MSG;
 #pragma pack(pop)
 
-#endif //QCQCTL_H
+#endif // MPQCTL_H
